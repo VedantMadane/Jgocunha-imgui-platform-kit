@@ -5,12 +5,14 @@
 imgui-platform-kit - Cross-platform toolkit for Dear ImGui.
 ===============================================
 
-[![Windows Build](https://github.com/Jgocunha/imgui-platform-kit/actions/workflows/windows.yml/badge.svg)](https://github.com/Jgocunha/imgui-platform-kit/actions/workflows/windows.yml)
-[![Linux Build](https://github.com/Jgocunha/imgui-platform-kit/actions/workflows/linux.yml/badge.svg)](https://github.com/Jgocunha/imgui-platform-kit/actions/workflows/linux.yml)
-[![macOS Build](https://github.com/Jgocunha/imgui-platform-kit/actions/workflows/macos.yml/badge.svg)](https://github.com/Jgocunha/imgui-platform-kit/actions/workflows/macos.yml)
-[![Coverage](https://github.com/Jgocunha/imgui-platform-kit/actions/workflows/coverage.yml/badge.svg)](https://github.com/Jgocunha/imgui-platform-kit/actions/workflows/coverage.yml)
-[![codecov](https://codecov.io/gh/Jgocunha/imgui-platform-kit/branch/main/graph/badge.svg)](https://codecov.io/gh/Jgocunha/imgui-platform-kit)
-[![Wiki](https://img.shields.io/badge/docs-wiki-blue)](https://github.com/Jgocunha/imgui-platform-kit/wiki)
+[![Windows](https://img.shields.io/github/actions/workflow/status/Jgocunha/imgui-platform-kit/windows.yml?branch=main&style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiI%2BPHBhdGggZD0iTTAgMy40NDlMOS43NSAyLjF2OS40NTFIMG0xMC45NDktOS42MDJMMjQgMHYxMS40SDEwLjk0OU0wIDEyLjZoOS43NXY5LjQ1MUwwIDIwLjY5OU0xMC45NDkgMTIuNkgyNFYyNGwtMTIuOS0xLjgwMSIvPjwvc3ZnPg%3D%3D&logoColor=white&label=Windows)](https://github.com/Jgocunha/imgui-platform-kit/actions/workflows/windows.yml)
+[![Linux](https://img.shields.io/github/actions/workflow/status/Jgocunha/imgui-platform-kit/linux.yml?branch=main&style=flat-square&logo=linux&logoColor=white&label=Linux)](https://github.com/Jgocunha/imgui-platform-kit/actions/workflows/linux.yml)
+[![macOS](https://img.shields.io/github/actions/workflow/status/Jgocunha/imgui-platform-kit/macos.yml?branch=main&style=flat-square&logo=apple&logoColor=white&label=macOS)](https://github.com/Jgocunha/imgui-platform-kit/actions/workflows/macos.yml)
+[![Coverage](https://img.shields.io/codecov/c/github/Jgocunha/imgui-platform-kit?style=flat-square&logo=codecov&logoColor=white)](https://codecov.io/gh/Jgocunha/imgui-platform-kit)
+[![Wiki](https://img.shields.io/badge/docs-wiki-blue?style=flat-square&logo=github&logoColor=white)](https://github.com/Jgocunha/imgui-platform-kit/wiki)
+
+[![C++20](https://img.shields.io/badge/C%2B%2B-20-00599C?style=flat-square&logo=cplusplus&logoColor=white)](https://en.cppreference.com/w/cpp/20)
+[![CMake](https://img.shields.io/badge/CMake-3.15%2B-064F8C?style=flat-square&logo=cmake&logoColor=white)](https://cmake.org)
 
 
 ## Description
