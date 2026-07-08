@@ -6,6 +6,9 @@
 
 install/
 build/
+
+# Generated Doxygen output
+imgui-platform-kit/docs/
 # Prerequisites
 *.d
 

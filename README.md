@@ -1,5 +1,5 @@
 
-<img src="./imgui-platform-kit/resources/images/logo-bg.png" alt="logo" length="400" width="400">
+<img src="./imgui-platform-kit/resources/images/logo-bg.png" alt="logo" height="400" width="400">
 
 
 imgui-platform-kit - Cross-platform toolkit for Dear ImGui.
@@ -10,6 +10,7 @@ imgui-platform-kit - Cross-platform toolkit for Dear ImGui.
 [![macOS](https://img.shields.io/github/actions/workflow/status/Jgocunha/imgui-platform-kit/macos.yml?branch=main&style=flat-square&logo=apple&logoColor=white&label=macOS)](https://github.com/Jgocunha/imgui-platform-kit/actions/workflows/macos.yml)
 [![Coverage](https://img.shields.io/codecov/c/github/Jgocunha/imgui-platform-kit?style=flat-square&logo=codecov&logoColor=white)](https://codecov.io/gh/Jgocunha/imgui-platform-kit)
 [![Wiki](https://img.shields.io/badge/docs-wiki-blue?style=flat-square&logo=github&logoColor=white)](https://github.com/Jgocunha/imgui-platform-kit/wiki)
+[![API Reference](https://img.shields.io/badge/docs-API%20reference-blue?style=flat-square&logo=doxygen&logoColor=white)](https://jgocunha.github.io/imgui-platform-kit/)
 
 [![C++20](https://img.shields.io/badge/C%2B%2B-20-00599C?style=flat-square&logo=cplusplus&logoColor=white)](https://en.cppreference.com/w/cpp/20)
 [![CMake](https://img.shields.io/badge/CMake-3.15%2B-064F8C?style=flat-square&logo=cmake&logoColor=white)](https://cmake.org)
@@ -104,9 +105,9 @@ target_link_libraries(MyAwesomeApp PRIVATE imgui-platform-kit)
 
 1. **Define Your Window Class**:
  ```cpp
- #include "base_window.h"
+ #include "user_interface_window.h"
 
- class MyCustomWindow : public BaseWindow 
+ class MyCustomWindow : public imgui_kit::UserInterfaceWindow 
  {
  public:
      MyCustomWindow();

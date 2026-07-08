@@ -1,5 +1,7 @@
 # Themes and Colours
 
+> Symbol-level detail for `Theme`, `StyleParameters` and the colour constants is in the [API reference](https://jgocunha.github.io/imgui-platform-kit/).
+
 ## Applying a theme
 
 Pass a `Theme` value inside `StyleParameters`:

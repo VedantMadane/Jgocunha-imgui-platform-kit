@@ -1,5 +1,7 @@
 # Creating Windows
 
+> Symbol-level detail for `UserInterfaceWindow` and `UserInterface` is in the [API reference](https://jgocunha.github.io/imgui-platform-kit/).
+
 ## The base class
 
 Every UI panel inherits from `UserInterfaceWindow` and implements `render()`:

@@ -1,0 +1,60 @@
+# Doxyfile for imgui-platform-kit
+# Only settings that differ from the Doxygen defaults are listed.
+
+#---------------------------------------------------------------------------
+# Project
+#---------------------------------------------------------------------------
+PROJECT_NAME           = "imgui-platform-kit"
+PROJECT_NUMBER         = 2.0.0
+PROJECT_BRIEF          = "Cross-platform Dear ImGui application framework"
+OUTPUT_DIRECTORY       = docs
+
+#---------------------------------------------------------------------------
+# Input
+#---------------------------------------------------------------------------
+INPUT                  = include \
+                         ../README.md
+RECURSIVE              = YES
+EXCLUDE_PATTERNS       = */stb_image.h
+USE_MDFILE_AS_MAINPAGE = ../README.md
+IMAGE_PATH             = resources/images
+
+#---------------------------------------------------------------------------
+# Extraction
+#---------------------------------------------------------------------------
+EXTRACT_ALL            = YES
+EXTRACT_STATIC         = YES
+JAVADOC_AUTOBRIEF      = YES
+BUILTIN_STL_SUPPORT    = YES
+
+#---------------------------------------------------------------------------
+# Preprocessing
+# _WIN32 is predefined so that a single canonical UserInterface (the
+# Win32/DX12 backend) is documented; the GLFW backends expose an identical
+# public API. IM_FMTARGS is an ImGui format-checking macro with no
+# documentation value.
+#---------------------------------------------------------------------------
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = YES
+PREDEFINED             = _WIN32 \
+                         "IM_FMTARGS(x)="
+
+#---------------------------------------------------------------------------
+# Output
+#---------------------------------------------------------------------------
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+GENERATE_TREEVIEW      = YES
+
+#---------------------------------------------------------------------------
+# Warnings
+#---------------------------------------------------------------------------
+QUIET                  = YES
+WARN_IF_UNDOCUMENTED   = YES
+
+#---------------------------------------------------------------------------
+# Diagrams (requires graphviz)
+#---------------------------------------------------------------------------
+HAVE_DOT               = YES
+DOT_IMAGE_FORMAT       = svg

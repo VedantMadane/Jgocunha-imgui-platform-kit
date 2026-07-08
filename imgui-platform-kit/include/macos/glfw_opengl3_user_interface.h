@@ -1,6 +1,15 @@
 
 #pragma once
 
+/**
+ * @file glfw_opengl3_user_interface.h
+ * @brief macOS backend of imgui_kit::UserInterface (GLFW + OpenGL 3).
+ *
+ * Include the platform-independent user_interface.h instead of this header;
+ * it selects the right backend automatically. The public API is identical to
+ * the documented Windows variant.
+ */
+
 #if defined(__APPLE__)
 
 #include "imgui.h"
@@ -30,6 +39,10 @@ namespace ImNodeEditor = ax::NodeEditor;
 
 namespace imgui_kit
 {
+    /**
+     * @brief OpenGL texture holding the background image and its parameters.
+     * Managed internally by UserInterface.
+     */
     struct GLFWbackgroundImageTexture
     {
         GLuint texture;
@@ -45,6 +58,14 @@ namespace imgui_kit
         {}
     };
 
+    /**
+     * @brief Main application object (macOS GLFW + OpenGL 3 backend).
+     *
+     * Same public API as the documented Windows variant: initialize(),
+     * render(), shutdown(), isShutdownRequested() and addWindow().
+     * @note Setting a window icon is a no-op on macOS (GLFW limitation);
+     * the application icon comes from the app bundle instead.
+     */
     class UserInterface
     {
     private:

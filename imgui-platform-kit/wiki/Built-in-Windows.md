@@ -1,5 +1,7 @@
 # Built-in Windows
 
+> Symbol-level detail for `LogWindow` and `TemplateWindow` is in the [API reference](https://jgocunha.github.io/imgui-platform-kit/).
+
 ## LogWindow
 
 `LogWindow` is a scrollable, filterable log panel. Its state is static — any code in your application can write to it without holding a reference to the window instance.
