@@ -12,3 +12,7 @@ coverage:
 ignore:
   - "imgui-platform-kit/examples"
   - "imgui-platform-kit/tests"
+  # Vendored third-party code — not part of the library's own surface
+  - "imgui-platform-kit/include/stb_image.h"
+# TODO: raise coverage.status.project.default.target to a fixed value (e.g. 75%)
+# once the test suites specified in issue #12 land.
