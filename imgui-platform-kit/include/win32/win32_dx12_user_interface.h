@@ -1,5 +1,13 @@
 #pragma once
 
+/**
+ * @file win32_dx12_user_interface.h
+ * @brief Windows backend of imgui_kit::UserInterface (Win32 + DirectX 12).
+ *
+ * Include the platform-independent user_interface.h instead of this header;
+ * it selects the right backend automatically.
+ */
+
 #if defined(_WIN32)
 
 #include "imgui.h"
@@ -35,6 +43,12 @@
 
 namespace imgui_kit
 {
+	/**
+	 * @brief D3D12 texture holding the background image and its parameters.
+	 *
+	 * Managed internally by UserInterface; owns the GPU resource and releases
+	 * it on destruction.
+	 */
 	struct DX12BackgroundImageTexture
 	{
 		ID3D12Resource* texture;
@@ -71,6 +85,24 @@ namespace imgui_kit
 		}
 	};
 
+	/**
+	 * @brief Main application object: owns the platform window, the rendering
+	 * backend and the registered UserInterfaceWindow instances.
+	 *
+	 * Typical usage:
+	 * @code
+	 * imgui_kit::UserInterface ui{parameters};
+	 * ui.initialize();
+	 * ui.addWindow<MyWindow>();
+	 * while (!ui.isShutdownRequested())
+	 *     ui.render();
+	 * ui.shutdown();
+	 * @endcode
+	 *
+	 * @note Every platform backend (Win32+DX12 on Windows, GLFW+OpenGL3 on
+	 * Linux and macOS) exposes this same public API; the generated
+	 * documentation shows the Windows variant.
+	 */
 	class UserInterface
 	{
 	private:
@@ -81,14 +113,46 @@ namespace imgui_kit
 		std::vector<std::shared_ptr<UserInterfaceWindow>> windows;
 		bool shutdownRequest;
 	public:
+		/// Constructs the interface with default UserInterfaceParameters.
 		UserInterface();
+		/**
+		 * @brief Constructs the interface with the given parameters.
+		 * @param parameters Window, font, style, icon and background image settings.
+		 */
 		explicit UserInterface(UserInterfaceParameters parameters);
 		~UserInterface() = default;
 
+		/**
+		 * @brief Creates the platform window, sets up the rendering backend
+		 * and the ImGui/ImPlot/node-editor contexts, and applies the
+		 * configured style, fonts, icon and background image.
+		 *
+		 * Must be called once before render().
+		 */
 		void initialize();
+		/**
+		 * @brief Renders one frame: processes platform events and calls
+		 * render() on every registered window.
+		 *
+		 * Call repeatedly in a loop until isShutdownRequested() returns true.
+		 */
 		void render();
+		/**
+		 * @brief Destroys the rendering backend, the ImGui contexts and the
+		 * platform window. Call once after the render loop ends.
+		 */
 		void shutdown();
+		/**
+		 * @brief Returns true once the user has requested to close the window.
+		 * @return True if the render loop should stop.
+		 */
 		[[nodiscard]] bool isShutdownRequested() const;
+		/**
+		 * @brief Constructs a window of type @p T and registers it for rendering.
+		 * @tparam T A subclass of UserInterfaceWindow.
+		 * @tparam Args Types of the constructor arguments.
+		 * @param args Arguments forwarded to the constructor of @p T.
+		 */
 		template<typename T, typename... Args>
 		void addWindow(Args&&... args)
 		{
@@ -106,6 +170,9 @@ namespace imgui_kit
 }
 
 // Dear ImGui stuff
+/// @cond INTERNAL
+/// Internal Win32/DX12 backend plumbing (device, swap chain, descriptor heaps
+/// and helper functions); not part of the public API.
 struct FrameContext
 {
 	ID3D12CommandAllocator* CommandAllocator;
@@ -146,5 +213,6 @@ std::wstring StringToWString(const std::string& str);
 float GetDpiScale(HWND hWnd);
 void ImGui_ImplDX12_SrvDescAlloc(ImGui_ImplDX12_InitInfo* info, D3D12_CPU_DESCRIPTOR_HANDLE* out_cpu, D3D12_GPU_DESCRIPTOR_HANDLE* out_gpu);
 void ImGui_ImplDX12_SrvDescFree(ImGui_ImplDX12_InitInfo* info, D3D12_CPU_DESCRIPTOR_HANDLE cpu, D3D12_GPU_DESCRIPTOR_HANDLE gpu);
+/// @endcond
 
 #endif

@@ -1,5 +1,7 @@
 # Configuration
 
+> Symbol-level detail for every struct on this page is in the [API reference](https://jgocunha.github.io/imgui-platform-kit/).
+
 All configuration is passed through `UserInterfaceParameters`, which groups five sub-parameter structs. Every field has a default value, so you can start with `UserInterface{}` and only set what you need.
 
 ```cpp

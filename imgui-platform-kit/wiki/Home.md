@@ -22,3 +22,7 @@
 | [ImPlot and Node Editor](ImPlot-and-Node-Editor) | Using ImPlot and imgui-node-editor inside your windows |
 | [Building from Source](Building-from-Source) | CMake options, vcpkg triplets, coverage builds |
 | [Contributing](Contributing) | Branch conventions, CI workflows, adding a new platform backend |
+
+## API reference
+
+Symbol-level documentation (classes, methods, parameters) is generated with Doxygen and published at **https://jgocunha.github.io/imgui-platform-kit/**.
