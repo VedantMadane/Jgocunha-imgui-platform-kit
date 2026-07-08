@@ -20,11 +20,6 @@ static const std::vector<Theme> ALL_THEMES = {
     Theme::LedSynthmaster,
 };
 
-static bool colorsEqual(const ImVec4& a, const ImVec4& b)
-{
-    return a.x == b.x && a.y == b.y && a.z == b.z && a.w == b.w;
-}
-
 // ─── apply() dispatches to the matching themes[] entry ───────────────────────
 
 TEST_CASE("StyleParameters: apply() applies the selected theme for every Theme value", "[parameters][apply]")

@@ -59,11 +59,6 @@ static const std::vector<NamedApplier> ALL_APPLIERS = {
 
 static constexpr int EXPECTED_APPLIER_COUNT = 36;
 
-static bool colorsEqual(const ImVec4& a, const ImVec4& b)
-{
-    return a.x == b.x && a.y == b.y && a.z == b.z && a.w == b.w;
-}
-
 static bool styleEqual(const ImGuiStyle& a, const ImGuiStyle& b)
 {
     for (int i = 0; i < ImGuiCol_COUNT; ++i)
@@ -210,12 +205,18 @@ TEST_CASE("Themes: applying a theme is idempotent", "[themes][apply]")
 {
     ImGuiContextFixture fixture;
 
-    for (const auto& applier : {std::pair{"Cherry", applyCherryTheme}, std::pair{"Darcula", applyDarculaTheme}, std::pair{"Gold", applyGoldTheme}})
+    const std::vector<NamedApplier> subset = {
+        {"Cherry", applyCherryTheme},
+        {"Darcula", applyDarculaTheme},
+        {"Gold", applyGoldTheme},
+    };
+
+    for (const auto& applier : subset)
     {
-        INFO("Theme: " << applier.first);
-        applier.second();
+        INFO("Theme: " << applier.name);
+        applier.fn();
         const ImGuiStyle first = ImGui::GetStyle();
-        applier.second();
+        applier.fn();
         const ImGuiStyle second = ImGui::GetStyle();
         CHECK(styleEqual(first, second));
     }

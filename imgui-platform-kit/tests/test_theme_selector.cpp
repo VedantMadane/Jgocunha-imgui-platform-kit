@@ -13,11 +13,6 @@ using namespace imgui_kit::testing;
 // therefore cover every line reachable without that interaction: the window
 // wrapper, the combo header, and the closed-combo path.
 
-static bool colorsEqual(const ImVec4& a, const ImVec4& b)
-{
-    return a.x == b.x && a.y == b.y && a.z == b.z && a.w == b.w;
-}
-
 TEST_CASE("ThemeSelector: renders with nullptr open flag", "[themeselector][render]")
 {
     ImGuiFrameFixture fixture;

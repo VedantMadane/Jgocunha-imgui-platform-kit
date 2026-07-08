@@ -14,6 +14,14 @@
 
 namespace imgui_kit::testing
 {
+    // Exact (non-approximate) ImVec4 comparison — the values under test are
+    // always literal source constants or copies of them, so bit-for-bit
+    // equality is expected and any divergence is a real regression.
+    inline bool colorsEqual(const ImVec4& a, const ImVec4& b)
+    {
+        return a.x == b.x && a.y == b.y && a.z == b.z && a.w == b.w;
+    }
+
     class ImGuiContextFixture
     {
     public:

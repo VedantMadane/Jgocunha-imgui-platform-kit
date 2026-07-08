@@ -20,11 +20,6 @@ namespace
         return std::make_unique<TemplateWindow>();
     }
 
-    bool colorsEqual(const ImVec4& a, const ImVec4& b)
-    {
-        return a.x == b.x && a.y == b.y && a.z == b.z && a.w == b.w;
-    }
-
     // template_window.cpp unconditionally calls ImPlot::ShowDemoWindow(), so
     // every test needs a live ImPlot context alongside the ImGui one. Created
     // after the ImGui context, destroyed before it dies.
