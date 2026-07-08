@@ -9,6 +9,12 @@ set(test_sources
     test_themes.cpp
     test_log_window.cpp
     test_fixture_smoke.cpp
+    test_themes_apply.cpp
+    test_style_parameters_apply.cpp
+    test_log_window_render.cpp
+    test_theme_selector.cpp
+    test_parameters_edge_cases.cpp
+    test_template_window.cpp
 )
 
 add_executable(imgui-platform-kit-tests ${test_sources})
