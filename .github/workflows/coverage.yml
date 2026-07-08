@@ -29,7 +29,8 @@ jobs:
             libxext-dev \
             pkg-config \
             ninja-build \
-            lcov
+            lcov \
+            xvfb
 
       - name: Set up vcpkg
         run: |
@@ -81,7 +82,7 @@ jobs:
 
       - name: Run tests
         working-directory: imgui-platform-kit/build/coverage
-        run: ctest --output-on-failure
+        run: xvfb-run -a ctest --output-on-failure
 
       - name: Collect coverage
         working-directory: imgui-platform-kit/build/coverage
@@ -92,6 +93,7 @@ jobs:
                "$HOME/vcpkg/*" \
                '*/tests/*' \
                '*/examples/*' \
+               '*/stb_image.h' \
                --output-file coverage.info \
                --ignore-errors unused
           lcov --list coverage.info
